@@ -1,0 +1,59 @@
+<div id="header">
+    <h1>Theater Review Portal (Page C)</h1>
+    <div data-bind="text: contentC"></div>
+</div>
+
+<div id="background-box">
+    <h3>Please select a file for upload:</h3>
+        <!-- data-bind is connected with the form tag
+             value of element will be set with action onchange-->    
+        <form data-bind="submit: uploadFile">           
+            <fieldset >
+                <legend>  File upload:   </legend>
+                <label for="filetitle">File Title:</label>
+                <input id="filetitle" type="text" data-bind="textInput: editedfiletitle">
+                <br /><br />  <br />  
+                
+               <!--Knockout hint: -->
+                <!-- ko foreach: $root.directoryValues -->
+                <label data-bind="attr: {for: $data}">
+                    <span data-bind="text:$data" />  </label>
+                    <input type="checkbox" name="directory" data-bind="checked: $parent.directories, value: $data"  /> <br />           
+                 <!-- /ko -->
+                
+                <br /><br />  <br />    
+                <button type="submit">Select File</button>
+            </fieldset>
+        </form>
+        <br />
+        <h3>What we got:</h3>
+        <p>
+            <span class="success">Last edited title: </span><span class="blackbold" data-bind="text: editedfiletitle"></span>
+        </p>
+        <p>
+            <span class="success">Targets selected:  </span>               
+                <span data-bind="foreach:directories">
+                    <span  class="blackbold"  data-bind="text: $data"></span>
+                </span>
+        </p> 
+        <p>
+            <span class="success">File selected:</span> 
+            <span class="blackbold"  data-bind="text: editeduploadedfile"></span>
+        </p>  
+
+       
+        <br /><br />
+        <hr />  
+        <br />
+        <form>
+            <fieldset >
+                <legend> For info:  Non working example </legend>
+                
+                <!--Upload, es kommt aber nur der reine Dateiname, nicht verwendbar:  -->    
+                <label for="wontWork">no fullpath available due to javascript limitation:</label><br /><br />
+                <input type="file" id="wontWork" name="wontWork" data-bind="event: { change: function() {addUplFile($element.files[0].name) }}" title="Select file"   >
+
+            </fieldset>
+        </form>
+
+</div>

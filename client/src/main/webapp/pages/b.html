@@ -1,0 +1,41 @@
+<div id="header">
+    <h1>Theater Review Portal (Page B)</h1>
+    <div class="success" data-bind="text: contentB"></div>
+</div>
+
+<div id="background-box">
+    <table>
+        <thead>
+            <tr >
+                <th >Performance Titel</th>
+                <th >Date</th>
+                <th >Abstract / Impression </th>
+                <th >Color connotation - synesthesia</th>
+                <th >Estimation - level</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:theaterReviews()">
+            <tr>
+                <td><span data-bind="text:performance"></span></td>
+                <td><span data-bind="text:dateOfVisit"></span></td>
+                <td><span data-bind="text:content"></span></td>
+                <td>    
+                    <span data-bind="foreach:synesthesia">
+                        <span data-bind="text: $data"></span>
+                    </span>
+                </td>
+                <td><span data-bind="text:rating"></span></td>                    
+            </tr>
+        </tbody>
+    </table>
+    <br /><br />
+      <!--call an url: anchor-->
+<h3>
+    Theater, Dance, Opera:<br /><br />
+    <a href="http://www.muenchen.de/int/en/events/theatre-dance-opera.html" target="_blank">Explore upcoming events</a>
+        
+</h3>  
+    
+</div>
+
+

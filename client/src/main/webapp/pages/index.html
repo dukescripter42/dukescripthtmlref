@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Theater Review Portal</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="menu_main">
+                <ul>
+                    <li data-bind="css: { selected: currentMenu() === 1 }">
+                        <a href="#" title="Input" data-bind="click: setA">Input Review</a>
+                    </li>
+                    <li data-bind="css: { selected: currentMenu() === 2 }"><a href="#" title="Data" data-bind="click: setB">Show Reviews</a></li>
+                    <li data-bind="css: { selected: currentMenu() === 3 }"><a href="#" title="Upload" data-bind="click: setF">File Upload Page</a></li> 
+                    <li><a href="#" title="Exit" data-bind="click: $root.actionExitNow" name="exitnow" onclick="return confirm('Exit app now?')">Exit</a></li>
+                </ul> 
+
+            <!-- end menu_main --></div>
+            
+            <div data-bind="template: { name: template, data: $data }"></div>
+            
+        </div>
+    </body>
+</html>

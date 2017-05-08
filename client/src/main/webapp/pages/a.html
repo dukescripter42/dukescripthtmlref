@@ -1,0 +1,40 @@
+<div id="header">
+        <h1>Theater Review Portal (Page A)</h1>
+        <div><span data-bind="text: contentA"></span></div>
+    </div>
+
+    <div id="background-box">
+        <h3>Please enter a review for the performance you visited:</h3>
+        <p class="error" data-bind="text: errorMessage">&nbsp;</p>
+        <div data-bind="with: editedTheaterReview">
+            <form>
+                <fieldset>
+                    <label for="performance">Performance visited (Title): </label>
+                    <input name="performance" id="performance" size="80" type="text" data-bind="textInput: performance" />
+                    <br />
+
+                    <label for="dateOfVisit">Date of visit: </label>
+                    <input class="date" name="dateOfVisit" id="dateOfVisit" size="80" type="text" data-bind="textInput: dateOfVisit, css: { error: $root.errorField() === 'dateOfVisit' }" />
+                    <br />              
+                    <label for="content">Abstract / Impression received: </label>
+                    <textarea name="content" id="content" rows="5" data-bind="textInput: content" ></textarea>
+                    <br />
+                    <hr />
+                    <label for="synesthesia">Color connotation - synesthesia </label>
+                    <select name="synesthesia"  id="synesthesia" multiple="multiple" data-bind="foreach: $root.synesthesiaValues, selectedOptions: synesthesia" >
+                        <option data-bind="value: $data, text:$data" > </option>
+                    </select>
+                    <br />
+                    <span class="label">Your estimation ( 1 is best)  </span><br />
+
+                        <!-- ko foreach: $root.ratingValues -->
+                        <input class="radio" name="rating" type="radio" data-bind="checked: $parent.rating, value: $data, id:''+$data" />
+                        <label class="radio" data-bind="attr: {for: ''+$data}">Level <span data-bind="text:$data"></span></label><br />         
+                        <!-- /ko -->
+
+                    <br />
+                    <input class="button grey submit" data-bind="click: $root.savePerformanceRatingSetB" name="save" onclick="return confirm('Save now?')" type="submit" value="Submit" />
+                </fieldset>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,384 @@
+@charset "utf-8";
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+  
+/* end reset */
+
+body {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    background: #fff;
+    color: #313131;
+    font-size: 76%;
+    line-height: 1.4em;
+}
+
+a {
+    color: #008000;
+}
+
+a.button_type {
+    border: 4px outset;
+    border-radius: 4px;
+    padding: 2px;
+    text-decoration: none;
+    font-size: 0.85em;
+}
+
+em  {
+    font-weight: bold;
+}
+
+fieldset {
+  border: 2px #006600 solid;
+  border-radius: 10px;
+  padding: 1em; 
+} 
+
+form hr {
+    background: #006600 none repeat scroll 0 0;
+    border-width: 0;
+    color: #3991E6;
+    height: 2px;
+    margin: 1em 0 1em 0;
+}
+
+form .date  {
+    width: 6.2em;
+}
+
+
+h1 {
+    color: #006600;
+    font-size: 150%;
+    font-weight: bold;
+    margin: .1em 0 1em 0;
+}
+
+
+h1 a:link:focus, h1 a:visited:focus, h1 a:link:hover, 
+h1 a:visited:hover, h1 a:active, h1 a:visited:active  {
+    background-position: left -24px;
+    text-decoration: none;
+}
+
+h2 {
+    color: #009900;
+    font-size: 150%;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 115%;
+    font-weight: bold;
+    margin: 1em 0 2em 0;
+    padding: 10px 0 3px 0	
+}
+
+h4 {
+    color: #009900;	
+    font-weight: bold;
+    margin: 1em 0 1em 0;
+    padding: 10px 0 3px 0
+}
+
+input   {
+    display: inline-block;
+    padding: 3px;
+    width: 30em;
+    border: thin solid #AAA;
+    border-radius: 4px;
+}
+
+input.date {
+    width: 7em;
+}
+
+input.error {
+    border-color: red;
+}
+
+input.radio  {
+    border-width: 0px;
+    bottom: 1px;
+    margin-left: 21%;
+    position: relative;
+    right: 2px;
+    vertical-align: middle;
+    width: auto;
+}
+
+input.submit    {
+    margin-left: 21%;
+    width: auto;
+}
+
+label   {
+
+    color: #009900;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: .1em;
+    vertical-align: top;
+    width: 20%;
+}
+
+label.ldescription{
+    vertical-align:middle;
+}
+
+label.radio {
+    color: #585858;
+    width: auto;
+}
+
+legend  {
+    font-weight: bold;
+    padding: 0 .4em 0 .4em;
+}
+
+p  {
+   padding: 1em 0;
+}
+
+ol, 
+ul{
+   list-style: none;
+}
+
+span.label   {
+    color: #009900;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 11px;
+    width: 20%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 1em 0;
+}
+
+td {
+    border: 1px solid #ccc; 
+    padding: 1px .5em 1.4px 1px;
+    vertical-align: top;
+}
+
+th {
+    border: 1px solid #ccc; 
+    padding: 1px .5em 1.4px 1px;
+    vertical-align: top;
+    font-weight: bold;
+}
+
+textarea  {
+    width: 100em;
+}
+
+
+
+
+
+/************************** Klassen *********************************/
+
+
+.button, .button:link, .button:visited {
+   background-color: #bbb; 
+   background-position: bottom;
+   background-repeat: repeat-x;
+   border: none;
+   border-radius: 5px;
+   color: #fff;
+   cursor: pointer;
+   display: inline;
+   font-weight: bold;
+   padding: 5px 10px;
+   text-decoration: none;
+   text-shadow: 1px 1px #666;
+}
+
+.button:hover, .button:focus {
+   background-position: 0 center;
+}
+   
+.button:active {
+   background-position: 0 top;
+   position: relative;
+   top: 1px;
+}
+
+
+
+.button.grey { 
+   color: #f7f7f7;
+   background-color: #a3a3a3; 
+}
+
+
+
+.button.small { 
+   font-size: 75%; 
+   padding: 3px 7px; 
+}
+
+.button.small:active { 
+   padding: 4px 7px 2px; 
+   background-position: 0 top; 
+}
+
+.button.large { 
+   font-size: 125%; 
+   padding: 7px 12px; 
+}
+
+.button.large:active { 
+   padding: 8px 12px 6px; 
+   background-position: 0 top; 
+}
+
+.grey {
+    color: #585858;
+}
+
+
+
+
+/****************************** IDs ***********************************/
+
+#header  {
+   background: linear-gradient(white, #c9c9c9) repeat scroll 0 0 rgba(0, 0, 0, 0);
+   padding: .5em 0 .4em .2em;
+}
+
+
+/* CPV-Code Seite */
+#background-box {
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 15px 19px;
+    margin: 20px;
+}
+
+
+
+#menu_main {
+   background: #009900;
+   color: #fff;
+   height: 40px;
+   width: 100%;
+}
+
+#menu_main a  {
+   border-right: 1px solid #fff;
+   color: #fff;
+   display: block;
+   padding: 0 6px 0 3px;
+   text-decoration: none;
+}
+
+#menu_main li {
+   float: left;
+}
+
+#menu_main li span  {
+   display: block;
+   padding: 0 6px 0 3px;
+}
+
+#menu_main li.last a   {
+   border: none;
+}
+
+#menu_main p  {
+   display: inline;
+   float: right;
+   height: 37px;
+   margin: 0;
+   padding-bottom: 0;
+   padding-right: 10px;
+   padding-top: 3px;
+   vertical-align: top;
+}
+
+#menu_main ul {
+   float: left;
+   list-style: none;
+}
+
+#menu_main .selected a  {
+   font-weight: bold;
+}
+/* Ende Blaues Menü */
+
+
+
+/*******        TOOLS         *******/
+
+.clearboth{ clear: both; }
+
+.disabled {
+    cursor: default;
+    pointer-events: none;
+}
+
+.error, .warning {
+   color: red;
+}
+
+/* Status : in Bearbeitung rot*/
+.processing {
+   color: red;
+}
+
+.right   {
+   margin-left: 1em; 
+}
+
+.success {
+   color: #008757; /* Dunkelgrün zu 06c */
+}
+
+/*debug test only*/
+.tooltip:hover:after {
+    content: attr(data-tooltip);
+    font-weight: bold;
+    font-size: 0.75em;
+}
