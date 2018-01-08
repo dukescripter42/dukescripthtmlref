@@ -46,6 +46,7 @@ final class DataModel {
     private static Closeable f;
     
     
+    
     @Model(className="UplFile", properties = {
         @Property(name = "origFileName", type = String.class),
         @Property(name = "targetFileName", type = String.class),
