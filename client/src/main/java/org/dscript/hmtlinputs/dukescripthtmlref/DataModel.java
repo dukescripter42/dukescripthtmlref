@@ -5,6 +5,8 @@ import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.stage.FileChooser;
 import net.java.html.json.ComputedProperty;
 import net.java.html.json.Function;
@@ -36,6 +38,7 @@ import org.dscript.hmtlinputs.dukescripthtmlref.js.TemplateRegistration;
     @Property(name = "editeduploadedfile", type= String.class),
     @Property(name = "uplfiles", type = UplFile.class, array=true),
     @Property(name = "currentMenu", type = int.class),
+     @Property(name = "strActionWithDuration", type = String.class),
 })
 
 final class DataModel {
@@ -120,6 +123,8 @@ final class DataModel {
         ui.setTemplate("a");
         //  Highlighting in the mail menue
         ui.setCurrentMenu(1);
+        
+        ui.setStrActionWithDuration("Noch nicht ausgeführt.");
         
         ui.setContentA("Please be first and rate your last theater visit!");
         ui.setContentB("This is Content for Template B!");
@@ -221,4 +226,20 @@ final class DataModel {
                     System.exit(0);
     }
 
+     
+    @Function
+    public static void doSomethingWithLongDuration(Data model) {
+        System.out.println("Starte lang dauernde Activity");
+        try {
+            Thread.sleep(5000); //5 sekunden schlafen
+            // hier soll auf der Seite ein Fortschrittsbalken  angezeigt werden
+            model.setStrActionWithDuration("Die langdauernde Aktion wurde ausgeführt.");
+            
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DataModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        setB(model);
+        System.out.println("Beende dauernde Activity");
+    }
+     
 }
