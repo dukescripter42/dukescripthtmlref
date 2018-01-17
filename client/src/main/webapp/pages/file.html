@@ -2,7 +2,6 @@
     <h1>Theater Review Portal (Page C)</h1>
     <div data-bind="text: contentC"></div>
 </div>
-
 <div id="background-box">
     <h3>Please select a file for upload:</h3>
         <!-- data-bind is connected with the form tag
@@ -43,8 +42,11 @@
         <p>
             <!--@Toni: wie kann man die Progressbar hier einbauen? -->
             <button type="submit" data-bind="click:doSomethingWithLongDuration">Do something and show progressbar</button>
-        
+
         </p>
+        <div class="progress-bar" data-bind="visible: showProgress">
+                <div class="progress-handle" data-bind="style: {width: progress()+'%'}"></div>
+            </div>
 
         <br /><br />
         <hr />  
