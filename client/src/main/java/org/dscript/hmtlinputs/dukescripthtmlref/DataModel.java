@@ -135,7 +135,7 @@ final class DataModel {
         //  Highlighting in the mail menue
         ui.setCurrentMenu(1);
 
-        ui.setStrActionWithDuration("Noch nicht ausgeführt.");
+        ui.setStrActionWithDuration("Long running action not yet executed.");
 
         ui.setContentA("Please be first and rate your last theater visit!");
         ui.setContentB("This is Content for Template B!");
@@ -243,7 +243,15 @@ final class DataModel {
 
     @Function
     public static void doSomethingWithLongDuration(final Data model) {
-        System.out.println("Starte lang dauernde Activity");
+        System.out.println("Long running action started");
+        
+        context.execute(new Runnable() {
+            @Override
+            public void run() {
+                model.setStrActionWithDuration("Long running action is running ;-)");
+            }
+        });
+        
         model.setShowProgress(true);
         model.setProgress(0);
         Runnable backgroundTask = new Runnable() {
@@ -266,7 +274,8 @@ final class DataModel {
                 context.execute(new Runnable() {
                     @Override
                     public void run() {
-                        model.setStrActionWithDuration("Die langdauernde Aktion wurde ausgeführt.");
+                        model.setStrActionWithDuration("Long running action finished.");
+                        // hier dürfen daten ins das ui model zurückgeschrieben werden ms 09.02.0218
                     }
                 });
 
